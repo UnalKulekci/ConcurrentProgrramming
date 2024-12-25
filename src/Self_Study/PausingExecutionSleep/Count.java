@@ -29,12 +29,13 @@ public class Count {
 
         // Main thread 1'den 15'e kadar sayar
         try {
-            for (int i = 1; i <= 15; i++) {
+            for (int i = 1; i <= 18; i++) {
                 System.out.println("Main thread sayıyor: " + i);
                 Thread.sleep(1000);  // Her sayıda 1 saniye bekler
             }
         } catch (InterruptedException e) {
             System.out.println("Main thread kesildi! Sayma işlemi durduruldu.");
+            return; // Main thread dongusunu sonlardirmak icin
         }
     }
 }
