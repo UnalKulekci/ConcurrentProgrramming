@@ -1,4 +1,4 @@
-package cp_5.slides_exmp;
+package cp5_ProfCodes.slides_exmp.BlockingQueue;
 
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;

@@ -1,4 +1,4 @@
-package cp_5.l_BlockingQueue.l_BlockingQueue;
+package cp5_ProfCodes.l_BlockingQueue.l_BlockingQueue;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

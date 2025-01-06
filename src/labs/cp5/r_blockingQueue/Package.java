@@ -1,4 +1,4 @@
-package cp_5.r_blockingQueue;
+package labs.cp5.r_blockingQueue;
 
 class Package {
 

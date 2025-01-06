@@ -1,4 +1,4 @@
-package cp_5.s1_ConcurrentHashMap;
+package labs.cp5.s1_ConcurrentHashMap;
 
 
 import java.util.concurrent.ConcurrentHashMap;

@@ -1,4 +1,4 @@
-package cp_5.slides_exmp.ConcurrentHashMap;
+package cp5_ProfCodes.slides_exmp.ConcurrentHashMap;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;

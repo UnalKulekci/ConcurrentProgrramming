@@ -1,4 +1,4 @@
-package cp_5.slides_exmp.Atomic;
+package cp5_ProfCodes.slides_exmp.Atomic;
 
 /*
  * SynchronizedCounter: Thread-safe bir sayaç sınıfıdır.
