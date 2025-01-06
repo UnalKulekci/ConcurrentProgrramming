@@ -1,4 +1,4 @@
-package cp_5.slides_exmp.Atomic;
+package cp5_ProfCodes.slides_exmp.Atomic;
 
 /*
 - Counter class'i thread-safe olmayan bir class'dir.
