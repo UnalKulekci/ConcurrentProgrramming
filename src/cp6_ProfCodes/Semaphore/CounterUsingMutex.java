@@ -2,38 +2,49 @@ package cp6_ProfCodes.Semaphore;
 
 import java.util.concurrent.Semaphore;
 
-
-/*
-Mutex: İki durumlu bir semafor (binary semaphore) olarak işlev görür.
-Sadece bir izin olduğunda, karşılıklı dışlama (mutual exclusion) sağlamak için kullanılır.
+/**
+ * Mutex: İki durumlu bir semafor (binary semaphore) olarak işlev görür.
+ * Yalnızca bir izin olduğunda, karşılıklı dışlama (mutual exclusion) sağlamak için kullanılır.
+ * Bu sınıf, aynı anda yalnızca bir iş parçacığının kritik bölgeye erişmesini sağlar.
  */
 class CounterUsingMutex {
-    private Semaphore mutex; // Mutex olarak kullanılacak semafor
-    private int count; // Sayıcı
+    private Semaphore mutex; // Mutex olarak kullanılan Semaphore
+    private int count; // Sayaç değişkeni
 
+    /**
+     * Yapıcı metod, bir izin içeren semafor başlatır.
+     * Bu, aynı anda yalnızca bir iş parçacığının kritik bölgeye girmesine izin verir.
+     */
     CounterUsingMutex() {
-        mutex = new Semaphore(1); // Sadece bir izin ile semafor oluşturuluyor
-        count = 0; // Sayıcı başlangıç değeri
+        mutex = new Semaphore(1); // 1 izinli semafor (Binary Semaphore)
+        count = 0; // Sayaç başlangıç değeri
     }
 
-    // Burada increase basina synchronized yazarsanda ayni sey olur mutex'siz yani
+    /**
+     * Sayaç değerini artırır.
+     * Mutex, iş parçacığının kritik bölgeye erişimini kontrol eder.
+     * @throws InterruptedException İş parçacığı beklerken kesilirse fırlatılır.
+     */
     void increase() throws InterruptedException {
-        mutex.acquire(); // Mutex'i al
-        this.count = this.count + 1; // Sayıcıyı artır
-        Thread.sleep(1000); // 1 saniye bekle
-        mutex.release(); // Mutex'i serbest bırak
+        mutex.acquire(); // İzin al, eğer izin yoksa bekle (blokla)
+        this.count = this.count + 1; // Sayaç artırılır (Kritik Bölge)
+        Thread.sleep(1000); // 1 saniye gecikme (Simülasyon amaçlı)
+        mutex.release(); // İzin serbest bırakılır
     }
 
+    /**
+     * Sayaç değerini döner.
+     * @return Mevcut sayaç değeri
+     */
     int getCount() {
-        return this.count; // Sayıcıyı döner
+        return this.count;
     }
 
+    /**
+     * Mutex üzerinde bekleyen iş parçacıklarının olup olmadığını kontrol eder.
+     * @return Eğer bekleyen iş parçacığı varsa true, yoksa false döner.
+     */
     boolean hasQueuedThreads() {
-        return mutex.hasQueuedThreads(); // Bekleyen iş parçacığı var mı kontrol eder
+        return mutex.hasQueuedThreads();
     }
 }
-
-/*
-- CounterUsingMutex sınıfı, bir sayıcıyı artırmak için bir mutex kullanır. increase() metodu, sayıcıyı artırmadan önce mutex'i alır ve işlem tamamlandığında serbest bırakır.
-getCount() metodu, mevcut sayıcı değerini döner. hasQueuedThreads() metodu, mutex için bekleyen iş parçacıkları olup olmadığını kontrol eder.
- */

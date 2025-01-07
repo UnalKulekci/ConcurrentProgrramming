@@ -14,6 +14,7 @@ public class Pizzaiolo implements Callable {
     public Pizza call() throws Exception {
 
         System.out.println(name + " got a pizza requested ");
+        // Random sure ekleyebilirsin buraya .
         Pizza pizza = new Pizza();
 
         pizza.prepare();
